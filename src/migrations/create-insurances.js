@@ -2,27 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("sell", {
+    await queryInterface.createTable("insurances", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      customerID: {
-        type: Sequelize.INTEGER,
-      },
       productID: {
         type: Sequelize.INTEGER,
       },
-      sellDate: {
+      startDate: {
         type: Sequelize.DATE,
       },
-      agentID: {
+      insuranceTime: {
         type: Sequelize.INTEGER,
       },
-      insuranceEndDate: {
-        type: Sequelize.DATE,
+      result: {
+        type: Sequelize.STRING,
+      },
+      description: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("sell");
+    await queryInterface.dropTable("insurances");
   },
 };
