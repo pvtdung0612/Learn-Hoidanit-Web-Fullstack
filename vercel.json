@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": 2,
     "name": "Learn-Hoidanit-Web-Fullstack",
     "builds": [
         {
@@ -10,7 +10,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/src/server.j"
+            "dest": "/src/server.js"
         }
     ]
 }
