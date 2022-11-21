@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "name": "Learn-Hoidanit-Web-Fullstack",
+    "builds": [
+        {
+            "src": "src/server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/src/server.j"
+        }
+    ]
+}

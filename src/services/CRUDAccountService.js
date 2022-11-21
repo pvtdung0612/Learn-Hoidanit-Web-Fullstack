@@ -36,6 +36,20 @@ let hashAccountPassword = (password) => {
   });
 };
 
+let getAllAccount = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let accounts = db.Account.findAll({
+        raw: true,
+      });
+      resolve(accounts);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   createAccount: createAccount,
+  getAllAccount: getAllAccount,
 };

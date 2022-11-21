@@ -6,12 +6,10 @@ let router = express.Router();
 let initWebRoute = (app) => {
   router.get("/", homeController.getHomePage);
   router.get("/about", homeController.getAboutPage);
+
   router.get("/crud-account", homeController.getCRUDAccount);
   router.post("/post-crud-account", homeController.postCRUDAccount);
-
-  // router.get('/hello', (req, res) => {
-  //     return res.send('hello dung')
-  // });
+  router.get("/get-crud-account", homeController.displayGetCRUDAccount);
 
   return app.use("/", router);
 };

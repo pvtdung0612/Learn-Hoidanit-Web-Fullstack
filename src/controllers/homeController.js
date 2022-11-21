@@ -26,9 +26,18 @@ let postCRUDAccount = async (req, res) => {
   return res.send("post crud from server");
 };
 
+let displayGetCRUDAccount = async (req, res) => {
+  let data = await CRUDAccountService.getAllAccount();
+  console.log("data from display crud: ", data);
+  return res.render("displayCRUDAccount.ejs", {
+    dataTable: data,
+  });
+};
+
 module.exports = {
   getHomePage: getHomePage,
   getAboutPage: getAboutPage,
   getCRUDAccount: getCRUDAccount,
   postCRUDAccount: postCRUDAccount,
+  displayGetCRUDAccount: displayGetCRUDAccount,
 };
