@@ -21,6 +21,7 @@
                 <th>password</th>
                 <th>roleKey</th>
                 <th>workplaceID</th>
+                <th>action</th>
             </tr>
             <% for(var i=0; i <dataTable.length; i++) { %>
                 <tr>
@@ -29,6 +30,14 @@
                             <td><%= dataTable[i].password %></td>
                                 <td><%= dataTable[i].roleKey %></td>
                                     <td><%= dataTable[i].workplaceID %></td>
+                                        <td>
+                                            <a href="/edit-crud-account?id=<%=
+                                                dataTable[i].id %>"
+                                                class="btn-edit"
+                                                type="button">edit</a>
+                                            <a class="btn-delete"
+                                                type="button">edit</a>
+                                        </td>
                                     </tr>
                                     <% } %>
                                     </table>

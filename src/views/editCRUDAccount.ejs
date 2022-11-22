@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CRUD with dung</title>
+        <title>Edit Account's Infomation</title>
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet"
@@ -20,19 +20,23 @@
     <body>
         <div class="container">
             <div class="row">
-                <form action="/post-crud-account" method="POST">
+                <form action="/put-crud-account" method="POST">
                     <div class="form-row">
-                        <div class="col-12 my-2"><b>Create new User</b></div>
+                        <div class="col-12 my-2"><b>Edit Account's Infomation</b></div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Username</label>
                             <input type="text" class="form-control"
                                 name="username"
-                                placeholder="Username">
+                                placeholder="Username"
+                                value="<%= account.username%>"
+                            >
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
                             <input type="password" class="form-control"
-                                name="password" placeholder="Password">
+                                name="password" placeholder="Password"
+                                value="<%= account.password%>"
+                            >
                         </div>
                     </div>
                     <div class="form-row">
@@ -48,7 +52,9 @@
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Work Place ID</label>
                             <input type="text" class="form-control"
-                                name="workplaceID" placeholder="Work Place ID">
+                                name="workplaceID" placeholder="Work Place ID"
+                                value="<%= account.workplaceID%>"
+                            >
                         </div>
                     </div>
                     <div class="form-group">
@@ -57,7 +63,9 @@
                             name="image"
                             placeholder="Url Image">
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <input name="id" value="<%= account.id%>" type="text"
+                    hidden>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>

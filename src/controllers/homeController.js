@@ -29,9 +29,35 @@ let postCRUDAccount = async (req, res) => {
 
 let displayGetCRUDAccount = async (req, res) => {
   let data = await CRUDAccountService.getAllAccount();
-  console.log("data from display crud: ", data);
   return res.render("displayCRUDAccount.ejs", {
     dataTable: data,
+  });
+};
+
+let getEditCRUDAccount = async (req, res) => {
+  let accountID = req.query.id;
+  if (accountID) {
+    let accountData = await CRUDAccountService.getUserInfoByID(accountID);
+    // check account not found
+    // if (!accountData) {
+    //   return res.send("Account with id=" + accountID + " not found");
+    // }
+
+    return res.render("editCRUDAccount.ejs", {
+      account: accountData,
+    });
+  } else {
+    return res.send("ID is not valid");
+  }
+};
+
+let putCRUDAccount = async (req, res) => {
+  let data = req.body;
+  console.log(data);
+  let resService = await CRUDAccountService.updateAccountData(data);
+  console.log(resService);
+  return res.render("displayCRUDAccount.ejs", {
+    dataTable: resService.data,
   });
 };
 
@@ -41,4 +67,6 @@ module.exports = {
   getCRUDAccount: getCRUDAccount,
   postCRUDAccount: postCRUDAccount,
   displayGetCRUDAccount: displayGetCRUDAccount,
+  getEditCRUDAccount: getEditCRUDAccount,
+  putCRUDAccount: putCRUDAccount,
 };
